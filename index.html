@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VETO: Oficina de Resoluciones de la ONU</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- PANTALLA DE TUTORIAL (primera en mostrarse) -->
+    <section id="pantalla-tutorial" class="pantalla activa">
+      <div class="contenido contenido-tutorial">
+        <div class="tutorial-header">
+          <span class="tutorial-progreso" id="tutorial-progreso">Paso 1 de 13</span>
+          <h1 class="tutorial-titulo" id="tutorial-titulo">Bienvenido a la ONU</h1>
+        </div>
+        <div class="tutorial-cuerpo" id="tutorial-cuerpo">
+          <!-- Contenido dinámico -->
+        </div>
+        <div class="tutorial-controles">
+          <button id="btn-tutorial-anterior" class="btn btn-secundario">← Anterior</button>
+          <button id="btn-tutorial-saltar" class="btn btn-saltar">Saltar tutorial</button>
+          <button id="btn-tutorial-siguiente" class="btn btn-principal">Siguiente →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla de juego -->
+    <section id="pantalla-juego" class="pantalla">
+      <div class="oficina">
+        <div class="barra-estado">
+          <div>Día: <span id="dia-actual">1</span></div>
+          <div>Documentos: <span id="doc-actual">0</span> / <span id="doc-total">0</span></div>
+          <div>Puntuación: <span id="puntuacion">0</span></div>
+          <div>Reputación: <span id="reputacion">100</span>%</div>
+          <div>Fondos: $<span id="fondos">0</span></div>
+          <div id="temporizador" class="timer">Tiempo: --:--</div>
+          <button id="btn-glosario" class="btn btn-glosario">📖 Glosario</button>
+          <button id="btn-rever-tutorial" class="btn btn-glosario">🎓 Tutorial</button>
+        </div>
+
+        <div class="panel-reglas">
+          <div class="regla-item"><strong>Miembro del Consejo:</strong> solo los 15 miembros pueden enviar documentos válidos.</div>
+          <div class="regla-item"><strong>Poder de veto:</strong> solo los 5 miembros permanentes pueden notificar un veto.</div>
+          <div class="regla-item"><strong>Fecha vigente:</strong> debe estar entre 2025 y 2027.</div>
+          <div class="regla-item"><strong>Sanción:</strong> no válida si el país está en conflicto directo.</div>
+        </div>
+
+        <div id="zona-evento" class="evento oculto">
+          <div class="evento-contenido">
+            <span class="evento-titulo" id="evento-titulo">Evento</span>
+            <span class="evento-texto" id="evento-texto"></span>
+          </div>
+        </div>
+
+        <div class="escritorio">
+          <div id="cinta-documentos" class="cinta-documentos"></div>
+          <div id="mensaje-feedback" class="feedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla de resultado -->
+    <section id="pantalla-resultado" class="pantalla">
+      <div class="contenido">
+        <h2 id="titulo-resultado">Fin del turno</h2>
+        <div class="estadisticas">
+          <div class="stat">
+            <div class="valor" id="stat-aciertos">0</div>
+            <div class="etiqueta">Aciertos</div>
+          </div>
+          <div class="stat">
+            <div class="valor" id="stat-errores">0</div>
+            <div class="etiqueta">Errores</div>
+          </div>
+          <div class="stat">
+            <div class="valor" id="stat-puntuacion">0</div>
+            <div class="etiqueta">Puntuación</div>
+          </div>
+          <div class="stat">
+            <div class="valor" id="stat-reputacion">100</div>
+            <div class="etiqueta">Reputación final</div>
+          </div>
+          <div class="stat">
+            <div class="valor" id="stat-fondos">0</div>
+            <div class="etiqueta">Fondos obtenidos</div>
+          </div>
+        </div>
+        <div id="informe-errores" class="informe-errores"></div>
+        <div id="mensaje-educativo" class="dato-curioso"></div>
+        <div class="botones-resultado">
+          <button id="btn-siguiente-dia" class="btn btn-principal">Siguiente día</button>
+          <button id="btn-volver-inicio" class="btn btn-secundario">Volver al tutorial</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de glosario -->
+    <div id="modal-glosario" class="modal oculto">
+      <div class="modal-contenido">
+        <h2>📖 Glosario de términos</h2>
+        <dl class="glosario-lista">
+          <dt>ONU</dt>
+          <dd>Organización de las Naciones Unidas. Organización internacional creada en 1945 para mantener la paz, proteger los derechos humanos y fomentar la cooperación entre países.</dd>
+          <dt>Consejo de Seguridad (CSNU)</dt>
+          <dd>Órgano de la ONU encargado de mantener la paz y la seguridad internacionales. Tiene 15 miembros y sus decisiones son vinculantes para todos los países miembros.</dd>
+          <dt>Resolución</dt>
+          <dd>Decisión oficial del Consejo de Seguridad. Puede ordenar un alto el fuego, imponer sanciones o autorizar una intervención. Para aprobarse necesita al menos 9 votos a favor y ningún veto de un miembro permanente.</dd>
+          <dt>Veto</dt>
+          <dd>Poder de los cinco miembros permanentes del Consejo de Seguridad para bloquear una resolución, aunque todos los demás voten a favor.</dd>
+          <dt>Miembro permanente</dt>
+          <dd>País que pertenece siempre al Consejo de Seguridad: China, Francia, Rusia, Reino Unido y Estados Unidos. Tiene poder de veto.</dd>
+          <dt>Miembro no permanente</dt>
+          <dd>País elegido por la Asamblea General para formar parte del Consejo durante dos años. No tiene poder de veto.</dd>
+          <dt>Sanción</dt>
+          <dd>Medida punitiva contra un país o entidad, como un embargo comercial, la congelación de bienes o restricciones de viaje.</dd>
+          <dt>Credenciales</dt>
+          <dd>Documento que acredita a un embajador para representar a su país ante el Consejo de Seguridad.</dd>
+          <dt>Cable diplomático</dt>
+          <dd>Mensaje oficial entre un gobierno y la ONU sobre un asunto de política internacional.</dd>
+          <dt>Quórum</dt>
+          <dd>Número mínimo de miembros que deben estar presentes para que el Consejo pueda tomar decisiones.</dd>
+          <dt>Conflicto directo</dt>
+          <dd>Situación en la que un país está involucrado activamente en un enfrentamiento armado. En el juego, un país en conflicto directo no puede proponer sanciones.</dd>
+        </dl>
+        <button id="btn-cerrar-glosario" class="btn btn-principal">Cerrar glosario</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/rules.js"></script>
+  <script src="js/documents.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/tutorial.js"></script>
+</body>
+</html>
