@@ -2,82 +2,61 @@
 
 Minijuego web educativo sobre el Consejo de Seguridad de la ONU (CSNU), estilo *Papers, Please*.
 
-## 🎮 Cómo jugar (para cualquier persona con internet)
+---
 
-No necesitas instalar nada. El juego está listo para subir a un hosting gratuito y funcionar en cualquier navegador.
+## 🎮 Jugar ahora
 
-### Opción 1: Netlify Drop (más fácil, sin cuenta)
+### 👉 https://lcdie.github.io/veto-onu-0.01/
 
-1. Descarga los archivos de este proyecto (o el archivo `veto-onu.zip` si lo tienes).
-2. Ve a: https://app.netlify.com/drop
-3. Arrastra la carpeta `veto-onu` (o descomprime el ZIP y arrastra la carpeta resultante) al área marcada en la página.
-4. En segundos te dará una URL pública (ejemplo: `https://tu-juego.netlify.app`).
-5. Comparte esa URL con quien quieras: cualquiera con internet podrá abrirla y jugar.
+Ese es el único enlace para jugar. Se abre en cualquier navegador, en computadora o móvil, sin instalar nada.
 
-### Opción 2: GitHub Pages (permanente, requiere cuenta gratuita)
+---
 
-1. Crea una cuenta en https://github.com
-2. Crea un repositorio nuevo (ejemplo: `veto-onu`).
-3. Sube los archivos: `index.html`, `css/style.css` y los archivos de `js/`.
-4. Ve a **Settings** → **Pages**.
-5. En "Build and deployment", selecciona rama `main` y carpeta `/ (root)`.
-6. Guarda y espera un minuto. Tendrás una URL tipo `https://tu-usuario.github.io/veto-onu/`.
+## 📱 Cómo jugar desde un móvil
 
-## 📁 Estructura de archivos
+1. Abre el enlace en Chrome, Safari o cualquier navegador del teléfono.
+2. El juego se adapta automáticamente a la pantalla.
+3. Toca los botones para avanzar en el tutorial y jugar.
+4. Comparte el mismo enlace con cualquier persona: no necesita cuenta ni instalar aplicaciones.
 
-```
-veto-onu/
-├── index.html          # Juego + tutorial interactivo inicial + glosario
-├── tutorial.html       # Redirige al tutorial integrado
-├── css/style.css
-├── js/
-│   ├── rules.js        # Datos y reglas del CSNU
-│   ├── documents.js    # Generador de documentos
-│   ├── game.js         # Motor del juego (pausa, puntuación, informe)
-│   ├── ui.js           # Renderizado, glosario e interfaz
-│   └── tutorial.js     # Tutorial interactivo de 13 pasos
-└── README.md
-```
+---
 
-## 🎓 Tutorial interactivo (13 pasos)
+## 🎓 Cómo se juega
 
-Al abrir la web, lo primero que aparece es una sesión completa que explica desde cero:
+Al abrir el enlace, aparece un tutorial interactivo de 13 pasos que explica desde cero:
 
-1. Bienvenido a la ONU (qué es la ONU y qué es el Consejo de Seguridad)
-2. Los 15 miembros del Consejo (5 permanentes con poder de veto + 10 no permanentes)
-3. ¿Qué es una resolución?
-4. El veto en detalle (con ejemplo y dato histórico)
-5. Glosario completo de términos
-6. Los documentos que revisarás
-7. Cómo revisar un documento (con ejemplos válido e inválido)
-8. Cómo se juega (interfaz, temporizador, documentos urgentes)
-9. Sobornos: dinero y ética
-10. Presiones políticas y eventos aleatorios
-11. Consecuencias de tus decisiones
-12. Práctica interactiva: decide tú mismo con un documento de ejemplo
-13. ¡Todo listo! Resumen y botón para empezar
+1. Qué es la ONU y el Consejo de Seguridad.
+2. Los 15 miembros: 5 permanentes con poder de veto + 10 no permanentes.
+3. Qué es una resolución.
+4. El veto en detalle.
+5. Glosario de términos.
+6. Los documentos que revisarás.
+7. Cómo revisar un documento.
+8. Cómo se juega.
+9. Sobornos y ética.
+10. Presiones políticas y eventos.
+11. Consecuencias de las decisiones.
+12. Práctica interactiva.
+13. ¡Todo listo!
 
-El tutorial puede saltarse con el botón "Saltar tutorial" y repasarse durante la partida con el botón "🎓 Tutorial" (el juego se pausa mientras lo lees).
+Después comienza el juego: revisa los documentos que llegan a tu escritorio, decide si **APROBARLOS** o **RECHAZARLOS**, gestiona el tiempo y cuida tu reputación. El objetivo es tomar las decisiones correctas según las reglas del Consejo de Seguridad.
 
-## 📖 Glosario durante el juego
+---
 
-El botón "📖 Glosario" abre 11 términos explicados: ONU, Consejo de Seguridad, resolución, veto, miembro permanente, miembro no permanente, sanción, credenciales, cable diplomático, quórum y conflicto directo.
+## 🛠️ Tecnologías
 
-## ℹ️ Sobre el juego
+- HTML5
+- CSS3
+- JavaScript puro (sin dependencias ni instalación)
 
-Eres un funcionario administrativo del Consejo de Seguridad de la ONU. Tu trabajo es revisar documentos y decidir si se aprueban o rechazan.
+---
 
-Características del modo avanzado:
-- Hasta 4 documentos simultáneos en pantalla
-- 12 documentos por día y 3 minutos de tiempo
-- Sobornos, presiones políticas y eventos aleatorios
-- Reputación, fondos y puntuación
-- Informe detallado de errores al final de cada día
-- Pausa automática al abrir el tutorial o el glosario
+## 📁 Estructura del proyecto
 
-Datos reales incluidos:
-- 15 miembros del CSNU: 5 permanentes con poder de veto + 10 no permanentes
-- Miembros permanentes con poder de veto: China, Francia, Rusia, Reino Unido y Estados Unidos
-- Reglas de membresía, veto, fechas y conflicto directo
-
-¡Listo para jugar desde cualquier navegador con internet!
+- `index.html` — Juego y tutorial interactivo.
+- `css/style.css` — Estilos visuales.
+- `js/rules.js` — Datos y reglas del CSNU.
+- `js/documents.js` — Generador de documentos.
+- `js/game.js` — Motor del juego.
+- `js/ui.js` — Interfaz y glosario.
+- `js/tutorial.js` — Tutorial de 13 pasos.
